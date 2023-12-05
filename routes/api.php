@@ -10,7 +10,7 @@ use App\Http\Controllers\EmailVerificationController;
 
 
 
-Route::post('login', [AuthController::class, 'login']);
+// Route::post('login', [AuthController::class, 'login']);
 
 
 
@@ -22,7 +22,7 @@ Route::middleware('auth')->get('/user', function (Request $request) {
 
 Route::group(['middleware' => ['api'], 'prefix' => 'user'], function () {
     Route::post('register', [AuthController::class, 'register']);
-    // Route::post('login', [AuthController::class, 'login']);
+    Route::post('login', [AuthController::class, 'login']);
     Route::post('logout', [AuthController::class, 'logout']);
     Route::post('refresh', [AuthController::class, 'refresh']);
     Route::post('me', [AuthController::class, 'me']);
